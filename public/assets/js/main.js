@@ -18,9 +18,13 @@ fetch("https://api.spoonacular.com/recipes/random?apiKey=c3edcfd4c8804a7bb2a5fe7
 
 class RecipeCard{
     id;
-    title;
+    user;
+    userImg;
+    userName;
     youtube;
     photo;
+    ratingDiv;
+    title;
     rating;
     ratingStar1;
     ratingStar2;
@@ -29,13 +33,23 @@ class RecipeCard{
     ratingStar5;
     htmlElement;
     addToList;
-    constructor(newId, newTitle, newPhoto, newYt, addToList){
+    constructor(newId, newTitle, newPhoto, newYt, newUserName, newUserImg, addToList){
         this.id = newId;
         this.addToList = addToList;
         this.youtube = newYt
 
         this.htmlElement = document.createElement("li");
         this.htmlElement.classList = "list-listItem";
+
+        this.user = document.createElement("div");
+        this.user.classList = "post__user";
+
+        this.userName = document.createElement("p");
+        this.userName.classList = "user__Name";
+        this.userName.innerText = newUserName;
+        this.userImg = document.createElement("img");
+        this.userImg.classList = "user__img";
+        this.userImg.setAttribute("src", newUserImg);
 
         this.title = document.createElement("a");
         this.title.classList = "post__nameRecipe";
@@ -46,7 +60,9 @@ class RecipeCard{
         this.photo.classList = "post__img";
         this.photo.setAttribute("src", newPhoto);
 
-        this.rating = document.createElement("div");
+        this.ratingDiv = document.createElement("div");
+        this.ratingDiv.classList = "post__ratingDiv";
+        this.rating = document.createElement("figure");
         this.rating.classList = "post__rating";
 
         this.ratingStar1 = document.createElement("i");
@@ -67,7 +83,13 @@ class RecipeCard{
     }
 
     render(){
-        this.htmlElement.appendChild(this.title);
+        this.user.appendChild(this.userImg);
+        this.user.appendChild(this.userName);
+        this.htmlElement.appendChild(this.user);
+        this.ratingDiv.appendChild(this.title);
+        this.ratingDiv.appendChild(this.rating);
+        
+        
         this.htmlElement.appendChild(this.photo);
         
         this.rating.appendChild(this.ratingStar1);
@@ -75,7 +97,7 @@ class RecipeCard{
         this.rating.appendChild(this.ratingStar3);
         this.rating.appendChild(this.ratingStar4);
         this.rating.appendChild(this.ratingStar5);
-        this.htmlElement.appendChild(this.rating);
+        this.htmlElement.appendChild(this.ratingDiv);
         this.addToList.appendChild(this.htmlElement);
     }
 
@@ -106,18 +128,29 @@ class RecipeList{
 }
 
 function fetchData(){
-    fetch("https://www.themealdb.com/api/json/v1/1/random.php")
-    .then((response) => {
-        return response.json();
+    Promise.all([
+        fetch("https://www.themealdb.com/api/json/v1/1/random.php"),
+        fetch("https://randomuser.me/api/")
+    ])
+    
+    .then((responses) => {
+        return Promise.all(responses.map(function (response){
+            return response.json()
+        }));
     })
     .then((data) =>{
-        let recipe  = data
-        let recipeId = recipe.meals[0].idMeal
-        let recipeTitle = recipe.meals[0].strMeal
-        let recipeImg = recipe.meals[0].strMealThumb
-        let recipeA= recipe.meals[0].strYoutube
+        console.log(data);
+        let info  = data
+        let recipeId = info[0].meals[0].idMeal
+        let recipeTitle = info[0].meals[0].strMeal
+        let recipeImg = info[0].meals[0].strMealThumb
+        let recipeA= info[0].meals[0].strYoutube
+        let userName = info[1].results[0].name.first + " " + info[1].results[0].name.last;
+        let userImg = info[1].results[0].picture.thumbnail
+        console.log(userName);
+        console.log(userImg);
         let list = new RecipeList("js--recipesList")
-        new RecipeCard(recipeId, recipeTitle, recipeImg, recipeA, document.getElementById(list.id))
+        new RecipeCard(recipeId, recipeTitle, recipeImg, recipeA, userName, userImg, document.getElementById(list.id))
     
         observeLastElement()
     })
@@ -149,3 +182,9 @@ let recipeImg = recipe.recipes[0].image;
 let recipeRating = Math.ceil(recipe.recipes[0].spoonacularScore); */
 
 
+/*
+    extra:
+    - footer met home, search, make post, reels en profile
+    - "stories", categorieën met random food pic
+    - 
+*/
