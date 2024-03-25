@@ -1,21 +1,3 @@
-
-// https://api.spoonacular.com/recipes/random
-/* 
-
-FETCH IN AN OBJECT OBSERVER, NEW FETCH EVERYTIME U SCROLL?
-
-let recipeTitle = document.getElementById("js--recipeTitle");
-let recipeImg = document.getElementById("js--recipeImg");
-
-fetch("https://api.spoonacular.com/recipes/random?apiKey=c3edcfd4c8804a7bb2a5fe7c3f26338c")
-.then((response) => {
-    return response.json();
-})
-.then((data) =>{
-    let recipe  = data;
-    new RecipeCard(...);
-}) */
-
 class RecipeCard{
     id;
     user;
@@ -31,6 +13,11 @@ class RecipeCard{
     ratingStar3;
     ratingStar4;
     ratingStar5;
+    interactionDiv;
+    interactionLike;
+    interactionComment;
+    interactionShare;
+    interacctionSave;
     htmlElement;
     addToList;
     constructor(newId, newTitle, newPhoto, newYt, newUserName, newUserImg, addToList){
@@ -76,7 +63,21 @@ class RecipeCard{
         this.ratingStar5 = document.createElement("i");
         this.ratingStar5.classList = "fa-regular fa-star";
 
-
+        this.interactionDiv = document.createElement("div");
+        this.interactionDiv.classList = "interaction__div";
+        this.interactionLike = document.createElement("i");
+        this.interactionLike.classList = "fa-regular fa-heart";
+        this.interactionComment = document.createElement("i");
+        this.interactionComment.classList = "fa-regular fa-comment";
+        this.interactionShare = document.createElement("i");
+        this.interactionShare.classList = "fa-regular fa-paper-plane";
+        this.interactionSave = document.createElement("i");
+        this.interactionSave.classList = "fa-regular fa-bookmark";
+        this.interactionDiv.appendChild(this.interactionLike);
+        this.interactionDiv.appendChild(this.interactionComment);
+        this.interactionDiv.appendChild(this.interactionShare);
+        this.interactionDiv.appendChild(this.interactionSave);
+        
         
         this.render();
         this.StarRating();
@@ -98,6 +99,7 @@ class RecipeCard{
         this.rating.appendChild(this.ratingStar4);
         this.rating.appendChild(this.ratingStar5);
         this.htmlElement.appendChild(this.ratingDiv);
+        this.htmlElement.appendChild(this.interactionDiv);
         this.addToList.appendChild(this.htmlElement);
     }
 
@@ -149,7 +151,7 @@ function fetchData(){
         let userImg = info[1].results[0].picture.thumbnail
         console.log(userName);
         console.log(userImg);
-        let list = new RecipeList("js--recipesList")
+        
         new RecipeCard(recipeId, recipeTitle, recipeImg, recipeA, userName, userImg, document.getElementById(list.id))
     
         observeLastElement()
@@ -173,13 +175,8 @@ function callback(entries, observer){
     })
 }
 
+let list = new RecipeList("js--recipesList")
 fetchData();
-
-
-/* let recipeId = recipe.recipes[0].title;
-let recipeTitle = recipe.recipes[0].title;
-let recipeImg = recipe.recipes[0].image;
-let recipeRating = Math.ceil(recipe.recipes[0].spoonacularScore); */
 
 
 /*
