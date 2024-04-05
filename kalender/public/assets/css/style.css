@@ -1,0 +1,107 @@
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-size: 2rem;
+    font-family: sans-serif;
+    background: #eee;
+    width: 100vw;
+    min-height: 100vh;
+    font-family: "Indie Flower", cursive;
+}
+
+.calender__header{
+    width: 100vw;
+    height: 10rem;
+    background: red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem;
+    background: rgb(173, 230, 217);
+}
+
+.header__info{
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__year{
+    font-size: 4rem;
+    font-family: "Rubik Doodle Shadow", system-ui;
+}
+
+.header__month{
+    font-size: 3rem;
+    font-family: "Indie Flower", cursive;
+}
+
+.header__navigation{
+    width: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+.navigation__button{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navigation__button:hover{
+    background: #eee;
+}
+
+.calender__main{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.month__weekdays{
+    width: 105rem;
+    list-style: none;
+    display: flex;
+}
+
+.month__weekday{
+    width: 15rem;
+    height: 5rem;
+    border: 0.2rem solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.month__days{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 105rem;
+}
+
+.month__day{
+    width: 15rem;
+    height: 15rem;
+    border:0.2rem solid black;
+}
