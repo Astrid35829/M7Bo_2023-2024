@@ -1,0 +1,58 @@
+{
+    "Bankrekening": [
+        {
+            "from/to": "Morgana",
+            "amount": 10
+        },
+        {
+            "from/to": "Teemo",
+            "amount": 100
+        },
+        {
+            "from/to": "Veigar",
+            "amount": -100
+        },
+        {
+            "from/to": "Aurelion Sol",
+            "amount": -20
+        },
+        {
+            "from/to": "Ahri",
+            "amount": 15
+        },
+        {
+            "from/to": "Kayle",
+            "amount": -50
+        },
+        {
+            "from/to": "Annie",
+            "amount": 20
+        },
+        {
+            "from/to": "Illoai",
+            "amount": -1000
+        }
+    ],
+    "ZZP-rekening":[
+        {
+            "from/to": "Demacia",
+            "amount": 10000
+        },
+        {
+            "from/to": "Noxus",
+            "amount": -15000
+        },
+        {
+            "from/to": "Shadow Isles",
+            "amount": -5000
+        },
+        {
+            "from/to": "Shurima",
+            "amount": -10000
+        },
+        {
+            "from/to": "Bandle City",
+            "amount": 150000
+        }
+    ]
+}

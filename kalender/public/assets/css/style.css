@@ -11,7 +11,7 @@ html{
 body{
     font-size: 2rem;
     font-family: sans-serif;
-    background: #eee;
+    background: white;
     width: 100vw;
     min-height: 100vh;
     font-family: "Indie Flower", cursive;
@@ -104,4 +104,17 @@ body{
     width: 15rem;
     height: 15rem;
     border:0.2rem solid black;
+    padding: 1rem;
+}
+
+.current__day{
+    background: rgb(173, 230, 217);
+}
+
+.inactive__day{
+    background: #dddede;
+}
+
+.active__day{
+    color: rgb(102, 187, 167);
 }

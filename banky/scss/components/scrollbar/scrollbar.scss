@@ -1,0 +1,16 @@
+@use "../../abstract/colors";
+
+body::-webkit-scrollbar-track {
+    background: map-get(colors.$baseColors, "whiteColor");        /* color of the tracking area */
+}
+  
+body::-webkit-scrollbar-thumb {
+    background-color: map-get(colors.$baseColors, "whiteColor");    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid map-get(colors.$baseColors, "backgroundDark");  /* creates padding around scroll thumb */
+}
+
+body {
+    scrollbar-width: thin;          /* "auto" or "thin" */
+    scrollbar-color: map-get(colors.$baseColors, "backgroundDark") map-get(colors.$baseColors, "whiteColor");   /* scroll thumb and track */ 
+}
