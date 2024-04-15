@@ -20,6 +20,16 @@ body {
   min-height: 100vh;
 }
 
+@keyframes popup {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+}
 .header {
   background: #fff;
   height: 8rem;
@@ -92,6 +102,9 @@ body {
   font-weight: 400;
   font-size: 175%;
 }
+.banky__money--blur {
+  filter: blur(20px);
+}
 .banky__logo {
   width: 5rem;
   height: 5rem;
@@ -128,12 +141,17 @@ body {
   height: 50rem;
   overflow-y: scroll;
 }
+.banky__transactions--blur {
+  filter: blur(20px);
+}
 .banky__transaction {
   font-size: 120%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
+  animation-name: popup;
+  animation-duration: 0.6s;
 }
 .banky__transaction::after {
   content: "";
@@ -144,7 +162,7 @@ body {
   bottom: 0;
   left: 0;
 }
-.banky___name, .banky__amount {
+.banky__name, .banky__amount {
   font-weight: 300;
   font-size: 120%;
 }
@@ -174,6 +192,8 @@ body {
   justify-content: center;
   width: 100%;
   gap: 4rem;
+  animation-name: popup;
+  animation-duration: 0.6s;
 }
 .banky__switchAccount, .banky__eyeButton {
   background: none;

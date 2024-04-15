@@ -1,5 +1,6 @@
 @use "../../abstract/vars";
 @use "../../abstract/colors.scss";
+@use "../../abstract/mixins";
 .header{
     background: map-get(colors.$baseColors, "whiteColor");
     height: map-get(vars.$vhCalc, "heightOfHeader");
@@ -14,7 +15,7 @@
     align-items: center;
     padding: 2rem;
     height: 15rem;
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
 
     &__logo{
         display: flex;

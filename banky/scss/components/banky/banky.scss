@@ -1,6 +1,7 @@
 @use "../../abstract/vars";
 @use "../../abstract/colors";
 @use "../../abstract/mixins";
+@use "../../abstract/animation";
 
 .banky{
     background: map-get(colors.$baseColors, "whiteColor");
@@ -35,6 +36,10 @@
     &__money{
         font-weight: 400;
         font-size: 175%;
+
+        &--blur{
+            @include mixins.blur;
+        }
     }
 
     &__logo{
@@ -74,6 +79,10 @@
         gap: 2rem;
         height: 50rem;
         overflow-y: scroll;
+
+        &--blur{
+            @include mixins.blur;
+        }
     }
 
     &__transaction{
@@ -82,13 +91,14 @@
         align-items: center;
         justify-content: space-between;
         position: relative;
+        @include mixins.popupMixin;
 
         &::after{
             @include mixins.afterStyle;
         }
     }
 
-    &___name, &__amount{
+    &__name, &__amount{
         font-weight: 300;
         font-size: 120%;
     }
@@ -121,6 +131,7 @@
         justify-content: center;
         width: 100%;
         gap: 4rem;
+        @include mixins.popupMixin;
     }
 
     &__switchAccount, &__eyeButton{

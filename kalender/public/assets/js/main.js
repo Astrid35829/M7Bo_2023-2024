@@ -143,7 +143,7 @@ class Main {
     }
 
     renderCalendar(date, months, currMonth, currYear, lastDateofLastMonth, lastDateofMonth, lastDayofMonth, firstDayofMonth) {
-        
+        this.monthListElement.innerHTML = "";
         for (let i = firstDayofMonth; i > 0; i--) { // creating li of previous month last days
             this.monthListItemElement[i] = document.createElement('li');
             this.monthListItemElement[i].classList = 'month__day inactive__day';
@@ -156,7 +156,7 @@ class Main {
             let isToday = i === date.getDate() && currMonth === new Date().getMonth()
                 && currYear === new Date().getFullYear() ? "month__day current__day" : "month__day active__day";
             this.monthListItemElement[i] = document.createElement('li');
-            this.monthListItemElement[i].classList = 'month__day';
+            this.monthListItemElement[i].classList = isToday;
             this.monthListItemElement[i].innerText = i;
             this.monthListElement.appendChild(this.monthListItemElement[i]); // Append here
             // RAAAAAAH fuck this...

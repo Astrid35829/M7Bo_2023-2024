@@ -2,57 +2,70 @@
     "Bankrekening": [
         {
             "from/to": "Morgana",
-            "amount": 10
+            "amount": 10,
+            "logo": "fa-house"
         },
         {
             "from/to": "Teemo",
-            "amount": 100
+            "amount": 100,
+            "logo": "fa-house"
         },
         {
             "from/to": "Veigar",
-            "amount": -100
+            "amount": -100,
+            "logo": "fa-house"
         },
         {
             "from/to": "Aurelion Sol",
-            "amount": -20
+            "amount": -20,
+            "logo": "fa-house"
         },
         {
             "from/to": "Ahri",
-            "amount": 15
+            "amount": 15,
+            "logo": "fa-house"
         },
         {
             "from/to": "Kayle",
-            "amount": -50
+            "amount": -50,
+            "logo": "fa-house"
         },
         {
             "from/to": "Annie",
-            "amount": 20
+            "amount": 20,
+            "logo": "fa-house"
         },
         {
             "from/to": "Illoai",
-            "amount": -1000
+            "amount": -1000,
+            "logo": "fa-house"
         }
     ],
     "ZZP-rekening":[
         {
             "from/to": "Demacia",
-            "amount": 10000
+            "amount": 10000,
+            "logo": "fa-mug-hot"
         },
         {
             "from/to": "Noxus",
-            "amount": -15000
+            "amount": -15000,
+            "logo": "fa-mug-hot"
         },
         {
             "from/to": "Shadow Isles",
-            "amount": -5000
+            "amount": -5000,
+            "logo": "fa-mug-hot"
         },
         {
             "from/to": "Shurima",
-            "amount": -10000
+            "amount": -10000,
+            "logo": "fa-mug-hot"
         },
         {
             "from/to": "Bandle City",
-            "amount": 150000
+            "amount": 150000,
+            "logo": "fa-mug-hot"
         }
     ]
 }
